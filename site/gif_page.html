@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dê Choco Milk para a Rei Chiquita</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gif-container">
+        <h2>Dê Choco Milk para a Rei Chiquita</h2>
+        <div id="gif1" class="tenor-gif-embed" data-postid="21470058" data-share-method="host" data-aspect-ratio="1.09966" data-width="100%">
+            <a href="https://tenor.com/view/rei-chiquita-gif-21470058">Rei Chiquita Sticker</a>
+            from <a href="https://tenor.com/search/rei+chiquita-stickers">Rei Chiquita Stickers</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="button-container">
+            <button id="chocoButton">Dar Choco Milk</button>
+            <p>Choco Milkadas: <span id="clickCount">0</span></p>
+        </div>
+        <div id="message" style="display: none;">Checar o e-mail!</div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const chocoButton = document.getElementById('chocoButton');
+        const clickCountElement = document.getElementById('clickCount');
+        const message = document.getElementById('message');
+
+        chocoButton.addEventListener('click', function() {
+            clickCount++;
+            clickCountElement.textContent = clickCount;
+
+            if (clickCount === 100) {
+                window.location.href = 'thank_you.html';
+            }
+        });
+    </script>
+</body>
+</html>

